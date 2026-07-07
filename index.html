@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================ SEO ============================ -->
+  <title>Tortuga — Roblox Scripter & Game Systems Developer</title>
+  <meta name="description" content="Tortuga is an experienced Roblox scripter with 4+ years building UI systems, shops, FPS frameworks and large-scale game architecture. Commissions open." />
+  <meta name="keywords" content="Roblox developer, Roblox scripter, Lua, FPS system, Roblox Studio, game systems, commission, Tortuga" />
+  <meta name="author" content="Tortuga" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#00ff88" />
+  <link rel="canonical" href="https://tortugadev.vercel.app" />
+
+  <!-- Open Graph / Discord / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tortuga.dev" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Tortuga — Roblox Scripter & Game Systems Developer" />
+  <meta property="og:description" content="Experienced Roblox developer with 4+ years building UI systems, shops, FPS frameworks and large-scale game architecture. Commissions open." />
+  <meta property="og:url" content="https://tortugadev.vercel.app" />
+  <meta property="og:image" content="https://tortugadev.vercel.app/assets/og-cover.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:image:alt" content="Tortuga — Roblox Scripter & Game Systems Developer" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="tortugadev.vercel.app" />
+  <meta property="twitter:url" content="https://tortugadev.vercel.app/" />
+  <meta name="twitter:site" content="@dev_tortuga" />
+  <meta name="twitter:creator" content="@dev_tortuga" />
+  <meta name="twitter:title" content="Tortuga — Roblox Scripter & Game Systems Developer" />
+  <meta name="twitter:description" content="Experienced Roblox developer with 4+ years building UI systems, shops, FPS frameworks and large-scale game architecture. Commissions open." />
+  <meta name="twitter:image" content="https://tortugadev.vercel.app/assets/og-cover.png" />
+  <meta name="twitter:image:alt" content="Tortuga — Roblox Scripter & Game Systems Developer" />
+
+  <!-- ============================ FONTS ============================ -->
+  <!-- Chakra Petch = squared technical display / JetBrains Mono = code accents / Sora = body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- loading screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <span class="loader__bracket">&lt;</span>
+        <span class="loader__name">TORTUGA</span>
+        <span class="loader__bracket">/&gt;</span>
+      </div>
+      <div class="loader__dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- last added thing -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="particles" class="bg-particles" aria-hidden="true"></canvas>
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="shape shape--1"></span>
+    <span class="shape shape--2"></span>
+    <span class="shape shape--3"></span>
+  </div>
+  <!-- floating code glyphs, populated by JS -->
+  <div id="codeGlyphs" class="code-glyphs" aria-hidden="true"></div>
+  <div id="mouseGlow" class="mouse-glow" aria-hidden="true"></div>
+
+  <!-- navbar-->
+  <header class="nav" id="nav">
+    <div class="nav__wrap">
+      <a href="#home" class="nav__brand" aria-label="Tortuga home">
+        <span class="nav__brand-mark"><img src="assets/pfp.png" alt="Tortuga" class="nav__brand-pfp" /></span>
+        <span class="nav__brand-text">tortuga<span class="nav__brand-dot">.dev</span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#project" class="nav__link">Project</a>
+        <a href="#pricing" class="nav__link">Pricing</a>
+        <a href="#process" class="nav__link">Process</a>
+        <a href="#contact" class="nav__link nav__link--cta">Contact</a>
+      </nav>
+
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- hero section -->
+  <section class="hero" id="home">
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">
+        <span class="status-dot"></span> Available for commissions
+      </p>
+
+      <h1 class="hero__title reveal" data-delay="1">TORTUGA</h1>
+
+      <p class="hero__subtitle reveal" data-delay="2">
+        <span id="typed"></span><span class="caret">|</span>
+      </p>
+
+      <p class="hero__desc reveal" data-delay="3">
+        Experienced Roblox developer capable of creating everything from simple
+        systems to advanced game mechanics.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="4">
+        <a href="#contact" class="btn btn--primary">Hire Me</a>
+        <a href="#project" class="btn btn--ghost">View Work</a>
+      </div>
+
+      <!-- animated statistics -->
+      <div class="hero__stats reveal" data-delay="5">
+        <div class="stat">
+          <span class="stat__num" data-count="4">0</span><span class="stat__plus">+</span>
+          <span class="stat__label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="10">0</span><span class="stat__plus">+</span>
+          <span class="stat__label">Systems Built</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="100">0</span><span class="stat__plus">%</span>
+          <span class="stat__label">Custom Code</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- developer-themed code window -->
+    <div class="hero__visual reveal" data-delay="3">
+      <div class="codewin">
+        <div class="codewin__bar">
+          <span class="codewin__dot"></span>
+          <span class="codewin__dot"></span>
+          <span class="codewin__dot"></span>
+          <span class="codewin__file">WeaponModule.lua</span>
+        </div>
+        <pre class="codewin__body"><code><span class="c-com">-- modular weapon handler</span>
+<span class="c-key">local</span> Weapon = {}
+Weapon.<span class="c-fn">__index</span> = Weapon
+
+<span class="c-key">function</span> Weapon.<span class="c-fn">new</span>(config)
+  <span class="c-key">local</span> self = <span class="c-fn">setmetatable</span>({}, Weapon)
+  self.damage   = config.damage
+  self.fireRate = config.fireRate
+  self.recoil   = config.recoil
+  <span class="c-key">return</span> self
+<span class="c-key">end</span>
+
+<span class="c-key">function</span> Weapon:<span class="c-fn">fire</span>()
+  self:<span class="c-fn">playViewmodel</span>()
+  self:<span class="c-fn">emitEffects</span>()
+<span class="c-key">end</span></code></pre>
+      </div>
+    </div>
+
+    <a href="#about" class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-line"></span>scroll
+    </a>
+  </section>
+
+  <section class="about section" id="about">
+    <div class="section__head reveal">
+      <span class="section__index">01</span>
+      <h2 class="section__title">About</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__lead reveal">
+        <div class="about__profile-head">
+          <img class="about__avatar" src="assets/pfp.png" alt="Tortuga" />
+          <div class="about__profile-info">
+            <span class="about__handle">Tortuga</span>
+            <span class="about__role-badge">Roblox Developer</span>
+          </div>
+        </div>
+        <p class="about__big">
+          Tortuga is an experienced Roblox scripter with over
+          <span class="hl">4 years</span> of development experience.
+        </p>
+        <p class="about__text">
+          From UI systems and shops to advanced FPS frameworks and large-scale
+          game systems, he delivers high-quality, scalable solutions for Roblox
+          projects. Clean architecture, readable modules, and code that's built
+          to grow with your game.
+        </p>
+        <div class="about__sign">
+          <span class="about__sign-name">// Tortuga</span>
+          <span class="about__sign-role">Roblox Systems Developer</span>
+        </div>
+      </div>
+
+      <div class="about__cards">
+        <article class="about__card reveal" data-delay="1">
+          <span class="about__card-ico">⌁</span>
+          <h3>4+ Years Experience</h3>
+          <p>Years of hands-on scripting across many game genres and systems.</p>
+        </article>
+        <article class="about__card reveal" data-delay="2">
+          <span class="about__card-ico">⊞</span>
+          <h3>Modular Systems</h3>
+          <p>Everything built with module scripts for easy expansion.</p>
+        </article>
+        <article class="about__card reveal" data-delay="3">
+          <span class="about__card-ico">⚡</span>
+          <h3>Fast Delivery</h3>
+          <p>Reliable timelines with progress updates throughout the build.</p>
+        </article>
+        <article class="about__card reveal" data-delay="4">
+          <span class="about__card-ico">◉</span>
+          <h3>Active Communication</h3>
+          <p>DMs open — clear updates from first message to final delivery.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills section" id="skills">
+    <div class="section__head reveal">
+      <span class="section__index">02</span>
+      <h2 class="section__title">Skills</h2>
+    </div>
+
+    <div class="skills__grid">
+      <!-- each .skill animates its bar when revealed (data-level = % width) -->
+      <div class="skill reveal" data-level="100">
+        <div class="skill__top"><span>Lua</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="95">
+        <div class="skill__top"><span>Roblox Studio</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="88">
+        <div class="skill__top"><span>DataStores</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="90">
+        <div class="skill__top"><span>UI Systems</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="0">
+        <div class="skill__top"><span>FPS Systems</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="99">
+        <div class="skill__top"><span>Readability</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="93">
+        <div class="skill__top"><span>Module Scripts</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="90">
+        <div class="skill__top"><span>Remote Events</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill__top"><span>Optimization</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+      <div class="skill reveal" data-level="88">
+        <div class="skill__top"><span>Game Architecture</span><span class="skill__pct">100%</span></div>
+        <div class="skill__bar"><i style="--lvl:100%"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project section" id="project">
+    <div class="section__head reveal">
+      <span class="section__index">03</span>
+      <h2 class="section__title">Featured Project</h2>
+    </div>
+
+    <div class="project__hero reveal">
+      <div class="project__meta">
+        <span class="project__tag">Flagship Showcase</span>
+        <h3 class="project__name">FPS&nbsp;System</h3>
+        <p class="project__desc">
+          This modular FPS framework was created for a project and features
+          easy-to-expand weapons, animations, effects, and sound systems.
+        </p>
+      </div>
+
+      <!-- have to add the video -->
+      <figure class="project__video">
+        <video
+          id="fpsDemo"
+          controls
+          playsinline
+          preload="none"
+          poster="assets/fpscover.png">
+          <source src="assets/work.mp4" type="video/mp4" />
+        </video>
+        <!-- shown until/unless the video loads -->
+        <div class="project__video-fallback" id="videoFallback">
+          <span class="project__play">▶</span>
+          <p>Weapon System</p>
+        </div>
+      </figure>
+    </div>
+
+    <!-- feature highlights -->
+    <div class="project__features">
+      <div class="feat reveal" data-delay="1"><span>01</span><h4>Viewmodel Support</h4><p>First-person arms & weapon synced to the camera.</p></div>
+      <div class="feat reveal" data-delay="2"><span>02</span><h4>Modular Weapons</h4><p>Each weapon is a self-contained, configurable module.</p></div>
+      <div class="feat reveal" data-delay="3"><span>03</span><h4>Animation System</h4><p>Fire, reload, equip & idle states driven cleanly.</p></div>
+      <div class="feat reveal" data-delay="4"><span>04</span><h4>Sound Effects</h4><p>Layered audio tied to weapon events and states.</p></div>
+      <div class="feat reveal" data-delay="5"><span>05</span><h4>Expandable Architecture</h4><p>Add a new weapon by dropping in one config file.</p></div>
+    </div>
+
+    <!-- dev notes + architecture -->
+    <div class="project__notes">
+      <div class="note reveal">
+        <h4 class="note__title"><span class="note__bar"></span>Development Notes</h4>
+        <p>Built as a framework rather than a single weapon — the goal was a base
+           that other developers can extend without touching core logic. Weapon
+           behaviour, effects, and audio are decoupled so changes stay isolated.</p>
+      </div>
+      <div class="note reveal" data-delay="1">
+        <h4 class="note__title"><span class="note__bar"></span>Architecture Highlights</h4>
+        <ul class="note__list">
+          <li><code>WeaponModule</code> — modular settings for every weapon</li>
+          <li><code>ViewmodelController</code> — camera-locked first-person rig</li>
+          <li><code>EffectService</code> — muzzle, impact & shell effects</li>
+          <li><code>RemoteHandler</code> — secure client/server communication</li>
+        </ul>
+      </div>
+    </div>
+
+
+  <section class="pricing section" id="pricing">
+    <div class="section__head reveal">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Pricing</h2>
+    </div>
+
+    <div class="pricing__grid">
+      <article class="price reveal">
+        <h3 class="price__tier">Basic Tasks</h3>
+        <div class="price__amount">Starting at <strong>$10 USD</strong><span>+</span></div>
+        <ul class="price__list">
+          <li>Health Bars</li>
+          <li>Small UI Systems</li>
+          <li>Bug Fixes</li>
+        </ul>
+        <a href="#contact" class="btn btn--ghost btn--sm">Enquire</a>
+      </article>
+
+      <article class="price price--featured reveal" data-delay="1">
+        <span class="price__badge">Most Common</span>
+        <h3 class="price__tier">Intermediate Tasks</h3>
+        <div class="price__amount">Starting at <strong>$60 USD</strong><span>+</span></div>
+          <li>Shops</li>
+          <li>Inventories</li>
+          <li>Gamepasses</li>
+        </ul>
+        <a href="#contact" class="btn btn--primary btn--sm">Enquire</a>
+      </article>
+
+      <article class="price reveal" data-delay="2">
+        <h3 class="price__tier">Advanced Systems</h3>
+        <div class="price__amount">Starting at <strong>$120 USD</strong><span>+</span></div>
+        <ul class="price__list">
+          <li>FPS Systems</li>
+          <li>Combat Systems</li>
+          <li>Frameworks</li>
+        </ul>
+        <a href="#contact" class="btn btn--ghost btn--sm">Enquire</a>
+      </article>
+    </div>
+
+    <p class="pricing__note reveal">
+      Prices are estimates. Contact me with your budget and project details.
+    </p>
+
+    <!-- payment methods -->
+    <div class="pay reveal">
+      <h4 class="pay__title">Payment Methods</h4>
+      <div class="pay__row">
+        <span class="pay__chip">PayPal</span>
+        <span class="pay__chip">USD</span>
+        <span class="pay__chip">Robux</span>
+        <span class="pay__chip">Group Funds</span>
+      </div>
+      <p class="pay__fine">Robux pricing is calculated using DevEx conversion values.</p>
+    </div>
+  </section>
+
+  <section class="process section" id="process">
+    <div class="section__head reveal">
+      <span class="section__index">05</span>
+      <h2 class="section__title">Commission Process</h2>
+    </div>
+
+    <ol class="timeline">
+      <li class="tl reveal"><span class="tl__num">1</span>
+        <div class="tl__card"><h4>Price Agreement</h4><p>We discuss scope and agree on a fair price.</p></div></li>
+      <li class="tl reveal" data-delay="1"><span class="tl__num">2</span>
+        <div class="tl__card"><h4>50% Upfront Payment</h4><p>Half the agreed amount secures your slot.</p></div></li>
+      <li class="tl reveal" data-delay="2"><span class="tl__num">3</span>
+        <div class="tl__card"><h4>Development & Updates</h4><p>I build the system with regular progress updates.</p></div></li>
+      <li class="tl reveal" data-delay="3"><span class="tl__num">4</span>
+        <div class="tl__card"><h4>Video Demonstration</h4><p>You receive a working demo before final payment.</p></div></li>
+      <li class="tl reveal" data-delay="4"><span class="tl__num">5</span>
+        <div class="tl__card"><h4>Remaining Payment</h4><p>The final 50% is paid once you approve the demo.</p></div></li>
+      <li class="tl reveal" data-delay="5"><span class="tl__num">6</span>
+        <div class="tl__card"><h4>Project Delivery</h4><p>You get the finished, ready-to-use files.</p></div></li>
+    </ol>
+
+    <!-- terms -->
+    <div class="terms">
+      <h4 class="terms__title reveal">Terms</h4>
+      <div class="terms__grid">
+        <div class="terms__card reveal"><span class="terms__ico">◆</span><p><strong>50% upfront</strong> is required to begin any project.</p></div>
+        <div class="terms__card reveal" data-delay="1"><span class="terms__ico">↺</span><p><strong>Full refund</strong> if the project cannot be completed.</p></div>
+        <div class="terms__card reveal" data-delay="2"><span class="terms__ico">⏱</span><p><strong>Cancel within 24h</strong> if work hasn't started yet.</p></div>
+        <div class="terms__card reveal" data-delay="3"><span class="terms__ico">⛔</span><p>After work begins, the upfront becomes <strong>non-refundable</strong>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- gotta add some review -->
+  <section class="testimonials section">
+    <div class="section__head reveal">
+      <span class="section__index">06</span>
+      <h2 class="section__title">Testimonials</h2>
+    </div>
+
+    <!-- seamless infinite marquee — track is duplicated in JS-free fashion below.
+         hover anywhere to pause. -->
+    <div class="testi__marquee reveal" id="testiMarquee">
+      <div class="testi__track">
+        <!-- ORIGINAL SET -->
+        <blockquote class="testi">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+          <p>Tortuga is an excellent dev who's helped me greatly in the making of my game. From him you can expect fast response times, reasonable pricing and quality work.</p>
+          <footer><span class="testi__avatar">A</span><span class="testi__by">ayce</span></footer>
+        </blockquote>
+        <blockquote class="testi">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+          <p>10/10 experience working with Tortuga. Great communication, fast turnaround, and great, quality code. Would 100% commission again.</p>
+          <footer><span class="testi__avatar">F</span><span class="testi__by">Flusic</span></footer>
+        </blockquote>
+        <blockquote class="testi">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+          <p>I give Tortuga a 10/10 rating. Adequate response times and good pricing for the work of a skilled developer. The final product was exactly what I needed, and he was very cordial and outgoing during communication.</p>
+          <footer><span class="testi__avatar">P</span><span class="testi__by">phyxis</span></footer>
+        </blockquote>
+        <blockquote class="testi">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+          <p>Tortuga never misses.</p>
+          <footer><span class="testi__avatar">S</span><span class="testi__by">Storm</span></footer>
+        </blockquote>
+
+        <!-- DUPLICATE SET (aria-hidden so screen readers don't repeat) -->
+        <blockquote class="testi" aria-hidden="true">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars">★★★★★</div>
+          <p>Tortuga is an excellent dev who's helped me greatly in the making of my game. From him you can expect fast response times, reasonable pricing and quality work.</p>
+          <footer><span class="testi__avatar">A</span><span class="testi__by">ayce</span></footer>
+        </blockquote>
+        <blockquote class="testi" aria-hidden="true">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars">★★★★★</div>
+          <p>10/10 experience working with Tortuga. Great communication, fast turnaround, and great, quality code. Would 100% commission again.</p>
+          <footer><span class="testi__avatar">F</span><span class="testi__by">Flusic</span></footer>
+        </blockquote>
+        <blockquote class="testi" aria-hidden="true">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars">★★★★★</div>
+          <p>I give Tortuga a 10/10 rating. Adequate response times and good pricing for the work of a skilled developer. The final product was exactly what I needed, and he was very cordial and outgoing during communication.</p>
+          <footer><span class="testi__avatar">P</span><span class="testi__by">phyxis</span></footer>
+        </blockquote>
+        <blockquote class="testi" aria-hidden="true">
+          <span class="testi__quote">"</span>
+          <div class="testi__stars">★★★★★</div>
+          <p>Tortuga never misses.</p>
+          <footer><span class="testi__avatar">S</span><span class="testi__by">Storm</span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact section -->
+  <section class="contact section" id="contact">
+    <div class="contact__inner reveal">
+      <span class="section__index">07</span>
+      <h2 class="contact__title">Let's build something.</h2>
+      <p class="contact__sub">
+        Discord DMs open <span class="hl">24/7</span> — send your project details and budget.
+      </p>
+
+      <div class="contact__discord">
+        <span class="contact__discord-label">Discord</span>
+        <a class="contact__discord-btn" href="https://discord.com/channels/@me/1510353612826476785" target="_blank" rel="noopener">
+          <svg class="contact__discord-svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          Message on Discord
+        </a>
+      </div>
+
+      <div class="contact__socials">
+        <a class="social" href="https://www.youtube.com/@TortugaRoDev" target="_blank" rel="noopener">
+          <span class="social__ico">▶</span><span>YouTube</span>
+        </a>
+        <a class="social" href="https://x.com/dev_tortuga" target="_blank" rel="noopener">
+          <span class="social__ico">𝕏</span><span>Twitter / X</span>
+        </a>
+        <a class="social social--pay" href="https://www.paypal.com/paypalme/devtortuga" target="_blank" rel="noopener">
+          <span class="social__ico">$</span><span>PayPal</span>
+        </a>
+      </div>
+
+      <a href="https://www.paypal.com/paypalme/devtortuga" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Start a Commission</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!--Footeer sec -->
+  <footer class="footer">
+    <div class="footer__brand"><span class="nav__brand-mark"><img src="assets/pfp.png" alt="Tortuga" class="nav__brand-pfp" /></span>tortuga<span class="nav__brand-dot">.dev</span></div>
+    <p class="footer__copy">Tortuga © 2026 — Built for Roblox Development</p>
+    <p class="footer__copy"><a href="https://discord.gg/sQxNeesU7J" target="_blank" rel="noopener noreferrer">Made by RCN</a></p>
+  </footer>
+
+  <!-- back to top -->
+  <button id="toTop" class="to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
