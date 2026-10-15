@@ -190,7 +190,7 @@ Weapon.<span class="c-fn">__index</span> = Weapon
         </div>
         <p class="about__big">
           Tortuga is an experienced Roblox scripter with over
-          <span class="hl">5 years</span> of development experience in which he has contributed to over <span class="hl">2.7M visits.</span>
+          <span class="hl">5 years</span> of development experience in which he has contributed to over <span class="hl">3.2M visits.</span>
         </p>
         <p class="about__text">
           From UI systems and shops to advanced FPS frameworks and large-scale
@@ -280,67 +280,87 @@ Weapon.<span class="c-fn">__index</span> = Weapon
     </div>
   </section>
 
-  <section class="project section" id="project">
-    <div class="section__head reveal">
-      <span class="section__index">03</span>
-      <h2 class="section__title">Featured Project</h2>
+ <section class="project section" id="project">
+  <div class="section__head reveal">
+    <span class="section__index">03</span>
+    <h2 class="section__title">My Game</h2>
+  </div>
+
+  <!-- ============ LAST DIVE ============ -->
+  <div class="project__hero reveal">
+    <div class="project__meta">
+      <span class="project__tag">Flagship Showcase</span>
+      <h3 class="project__name">Last&nbsp;Dive</h3>
+      <p class="project__desc">
+        Last Dive was made in 2 months with Opimisc, a builder and friend of mine.
+        I scripted all of the systems in this project.
+      </p>
+      <!-- optional: link to the game -->
+      <a href="https://www.roblox.com/games/74678403910529" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Play Last Dive</a>
     </div>
 
-    <div class="project__hero reveal">
-      <div class="project__meta">
-        <span class="project__tag">Flagship Showcase</span>
-        <h3 class="project__name">FPS&nbsp;System</h3>
-        <p class="project__desc">
-          This modular FPS framework was created for a project and features
-          easy-to-expand weapons, animations, effects, and sound systems.
-        </p>
-      </div>
+    <figure class="project__video">
+    <a href="https://www.roblox.com/games/74678403910529" target="_blank" rel="noopener" style="display:block;">
+      <img src="assets/Lastdivethumbnail.jpg.jpg" alt="Last Dive" style="width:100%;display:block;" />
+    </a>
+  </figure>
+  </div>
 
-      <!-- have to add the video -->
-      <figure class="project__video">
-        <video
-          id="fpsDemo"
-          controls
-          playsinline
-          preload="none"
-          poster="assets/fpscover.png">
-          <source src="assets/work.mp4" type="video/mp4" />
-        </video>
-        <!-- shown until/unless the video loads -->
-        <div class="project__video-fallback" id="videoFallback">
-          <span class="project__play">▶</span>
-          <p>Weapon System</p>
-        </div>
-      </figure>
+  <!-- systems you built for Last Dive (edit these to match the real ones) -->
+  <div class="project__features">
+    <div class="feat reveal" data-delay="1"><span>01</span><h4>Torpedo System</h4><p>Lets the player shoot aim and shoot a torpedo through a computer screen.</p></div>
+    <div class="feat reveal" data-delay="2"><span>02</span><h4>Hazards</h4><p>Multiple hazard systems that work together.</p></div>
+  </div>
+
+  <!-- ============ FPS SYSTEM ============ -->
+  <div class="project__hero reveal">
+    <div class="project__meta">
+      <span class="project__tag">Framework</span>
+      <h3 class="project__name">FPS&nbsp;System</h3>
+      <p class="project__desc">
+        This modular FPS framework features easy-to-expand weapons,
+        animations, effects, and sound systems.
+      </p>
     </div>
 
-    <!-- feature highlights -->
-    <div class="project__features">
-      <div class="feat reveal" data-delay="1"><span>01</span><h4>Viewmodel Support</h4><p>First-person arms & weapon synced to the camera.</p></div>
-      <div class="feat reveal" data-delay="2"><span>02</span><h4>Modular Weapons</h4><p>Each weapon is a self-contained, configurable module.</p></div>
-      <div class="feat reveal" data-delay="3"><span>03</span><h4>Animation System</h4><p>Fire, reload, equip & idle states driven cleanly.</p></div>
-      <div class="feat reveal" data-delay="4"><span>04</span><h4>Sound Effects</h4><p>Layered audio tied to weapon events and states.</p></div>
-      <div class="feat reveal" data-delay="5"><span>05</span><h4>Expandable Architecture</h4><p>Add a new weapon by dropping in one config file.</p></div>
-    </div>
+    <figure class="project__video">
+      <video
+        id="fpsDemo"
+        controls
+        playsinline
+        preload="none"
+        poster="assets/fpscover.png">
+        <source src="assets/work.mp4" type="video/mp4" />
+      </video>
+    </figure>
+  </div>
 
-    <!-- dev notes + architecture -->
-    <div class="project__notes">
-      <div class="note reveal">
-        <h4 class="note__title"><span class="note__bar"></span>Development Notes</h4>
-        <p>Built as a framework rather than a single weapon — the goal was a base
-           that other developers can extend without touching core logic. Weapon
-           behaviour, effects, and audio are decoupled so changes stay isolated.</p>
-      </div>
-      <div class="note reveal" data-delay="1">
-        <h4 class="note__title"><span class="note__bar"></span>Architecture Highlights</h4>
-        <ul class="note__list">
-          <li><code>WeaponModule</code> — modular settings for every weapon</li>
-          <li><code>ViewmodelController</code> — camera-locked first-person rig</li>
-          <li><code>EffectService</code> — muzzle, impact & shell effects</li>
-          <li><code>RemoteHandler</code> — secure client/server communication</li>
-        </ul>
-      </div>
+  <div class="project__features">
+    <div class="feat reveal" data-delay="1"><span>01</span><h4>Viewmodel Support</h4><p>First-person arms & weapon synced to the camera.</p></div>
+    <div class="feat reveal" data-delay="2"><span>02</span><h4>Modular Weapons</h4><p>Each weapon is a self-contained, configurable module.</p></div>
+    <div class="feat reveal" data-delay="3"><span>03</span><h4>Animation System</h4><p>Fire, reload, equip & idle states driven cleanly.</p></div>
+    <div class="feat reveal" data-delay="4"><span>04</span><h4>Sound Effects</h4><p>Layered audio tied to weapon events and states.</p></div>
+    <div class="feat reveal" data-delay="5"><span>05</span><h4>Expandable Architecture</h4><p>Add a new weapon by dropping in one config file.</p></div>
+  </div>
+
+  <div class="project__notes">
+    <div class="note reveal">
+      <h4 class="note__title"><span class="note__bar"></span>Development Notes</h4>
+      <p>Built as a framework rather than a single weapon — the goal was a base
+         that other developers can extend without touching core logic. Weapon
+         behaviour, effects, and audio are decoupled so changes stay isolated.</p>
     </div>
+    <div class="note reveal" data-delay="1">
+      <h4 class="note__title"><span class="note__bar"></span>Architecture Highlights</h4>
+      <ul class="note__list">
+        <li><code>WeaponModule</code> — modular settings for every weapon</li>
+        <li><code>ViewmodelController</code> — camera-locked first-person rig</li>
+        <li><code>EffectService</code> — muzzle, impact & shell effects</li>
+        <li><code>RemoteHandler</code> — secure client/server communication</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
   <section class="pricing section" id="pricing">
@@ -362,15 +382,16 @@ Weapon.<span class="c-fn">__index</span> = Weapon
       </article>
 
       <article class="price price--featured reveal" data-delay="1">
-        <span class="price__badge">Most Common</span>
-        <h3 class="price__tier">Intermediate Tasks</h3>
-        <div class="price__amount">Starting at <strong>$60 USD</strong><span>+</span></div>
-          <li>Shops</li>
-          <li>Inventories</li>
-          <li>Gamepasses</li>
-        </ul>
-        <a href="#contact" class="btn btn--primary btn--sm">Enquire</a>
-      </article>
+           <span class="price__badge">Most Common</span>
+         <h3 class="price__tier">Intermediate Tasks</h3>
+         <div class="price__amount">Starting at <strong>$60 USD</strong><span>+</span></div>
+  <ul class="price__list">
+    <li>Shops</li>
+    <li>Inventories</li>
+    <li>Gamepasses</li>
+  </ul>
+  <a href="#contact" class="btn btn--primary btn--sm">Enquire</a>
+</article>
 
       <article class="price reveal" data-delay="2">
         <h3 class="price__tier">Advanced Systems</h3>
